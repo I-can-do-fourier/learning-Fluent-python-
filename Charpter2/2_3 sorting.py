@@ -45,6 +45,6 @@ Round=10
 random.seed(12)
 output=[]
 for i in range(Round):
-    item=random.randrange(3+i)
+    item=random.randrange(3+i) #给定生成随机数的范围和步长。但是有一点小问题，只输入一个参数时，相当于给定高的边界。
     bisect.insort(output,item)
     print('{:2d}----'.format(item),output)
