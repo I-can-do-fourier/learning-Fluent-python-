@@ -42,7 +42,7 @@ if __name__=='__main__':
 import random
 
 Round=10
-random.seed(12)
+random.seed(12)#这个东东这里好像没有起到什么作用
 output=[]
 for i in range(Round):
     item=random.randrange(3+i) #给定生成随机数的范围和步长。但是有一点小问题，只输入一个参数时，相当于给定高的边界。
