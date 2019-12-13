@@ -24,7 +24,7 @@ show_fmt='num {:3d} | position {:3d} :{}'
 def neversay(bisect_fn):
 
     for needle in reversed(NEEDLES):
-        position=bisect_fn(HAYSTACK,needle)
+        position=bisect_fn(HAYSTACK,needle)#显然，bisect.bisect(a,b)返回一个插入的位置
         seat=position*'   *'+''+str(needle)
         para=(needle,position,seat)
         print(show_fmt.format(*para))
@@ -46,5 +46,5 @@ random.seed(12)#这个东东这里好像没有起到什么作用
 output=[]
 for i in range(Round):
     item=random.randrange(3+i) #给定生成随机数的范围和步长。但是有一点小问题，只输入一个参数时，相当于给定高的边界。
-    bisect.insort(output,item)
+    bisect.insort(output,item)#bisect.insort()的返回值为none
     print('{:2d}----'.format(item),output)
