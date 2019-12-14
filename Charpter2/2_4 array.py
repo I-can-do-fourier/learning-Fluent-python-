@@ -28,4 +28,12 @@ a=array.array('b',[2,2,3,4,5,5,6,3,7,2,6,39,6,0,2,5])
 a=array.array(a.typecode,sorted(a)) #insort之前需要保证HACKSTACK已经被sorted了
 bisect.insort(a,9)
 
-#2 memoryview
+#2 memoryview，不需要直接copy.直接修改memory
+
+memtest=array.array('h',[-2,3,4,0,2,1,5])#signed 16bit int
+memv=memoryview(memtest) #创建memoryview对象，方便进行memory分析。
+
+memv_B=memv.cast('B')#将memoryview对象投射成unsigned 8bit int形式...其实变成signed 8bit int('b')也是可以的
+memv_Blist=list(memv_B)#变变为list显示出来//  memv_B。tolist()也可
+memv_B[7]=4#这个地方不要用memv_Blist
+print(memtest)  #多种对象全都指向同一个 memory,但是memory生成list是单独的，并不指向那个memory
