@@ -30,10 +30,13 @@ t=bytes.fromhex('49 f3 89')
 
 #bytes(str,encoding=)
 
+#a.encode('utf-8')
+
 #iterable
 
-a=bytes((i for i in range(10)))#注意这个输出的形式，并没有encoding. 和bytes(str,encoding=)的 情况是不一样的。
-
+a=bytes((i for i in range(15)))#注意这个输出的形式，并没有encoding. 和bytes(str,encoding=)的 情况是不一样的。
+b=bytes([65])
+c=bytes((i for i  in [65]))
 #空bytes
 
 a=bytes(5)
